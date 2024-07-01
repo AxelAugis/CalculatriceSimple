@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         PLUS, MOINS, FOIS, DIV
     }
 
+    // Calculate depending on the clicked operator
     public void computeResult(View v) {
         if(operator != null) {
             switch (operator) {
@@ -47,10 +48,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // Display the result on the screen
     public void updateDisplay(int value) {
         screen.setText(String.valueOf(value));
     }
 
+    // Set the operator used for each calculation
     public void setOperator(View v) {
         Button b = (Button) v;
         if (!isOp1) {
@@ -85,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 op2 = op2 * 10 + val;
                 updateDisplay(op2);
             }
+        // Return toast in case of error
         } catch(NumberFormatException | ClassCastException e) {
             Toast.makeText(this, "Valeur erronée", Toast.LENGTH_LONG).show();
         }
